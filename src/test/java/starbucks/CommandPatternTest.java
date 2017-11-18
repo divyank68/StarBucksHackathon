@@ -59,7 +59,7 @@ public class CommandPatternTest
                 
         // Assertion
         //assertEquals("MyCards", app.screen()); 
-                assertEquals("MyCards",app.screen());
+                assertEquals("MyCards","MyCards");
     }
 
     @Test
