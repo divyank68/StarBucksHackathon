@@ -1,6 +1,3 @@
-
-
-
 package starbucks ;
 
 
@@ -18,10 +15,8 @@ import org.junit.Test;
 public class CommandPatternTest
 {
     IApp app ;
-    PinEntryMachine pinEntry ;
-    Screen k;
-    Frame f = new Frame(k);
-    
+    IOrientationStrategy f;
+
     /**
      * Default constructor for test class CommandPatternTest
      */
@@ -38,28 +33,22 @@ public class CommandPatternTest
     public void setUp()
     {
         app = new AppAuthProxy() ;
-        pinEntry= new PinEntryMachine();
-        k=new Screen();
+
     }
 
 
     @Test
     public void testMyCards()
     {
-        // Login with pin
-        
-        // Select Menu "A"
+        app.touch(1, 5);
+        app.touch(2, 5);
+        app.touch(3, 5);
+        app.touch(4, 5);
 
-                k.touch(1, 5);
-                k.touch(2, 5);
-                k.touch(3, 5);
-                k.touch(1, 4);
-                
-                f.selectA();
-                
+        // Select Menu "A"
+        app.execute("A");
         // Assertion
-        //assertEquals("MyCards", app.screen()); 
-                assertEquals("MyCards","MyCards");
+        assertEquals("MyCards", app.screen());
     }
 
     @Test
@@ -68,35 +57,54 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "B"
- 
+        app.touch(1, 5);
+        app.touch(2, 5);
+        app.touch(3, 5);
+        app.touch(4, 5);
+
+        // Select Menu "A"
+        app.execute("B");
+
         // Assertion
-        assertEquals("Payments", app.screen());            
+        assertEquals("Payments", app.screen());
     }
 
-  @Test
+    @Test
     public void testRewards()
     {
         assertEquals("PinScreen", app.screen());
         // Login with pin
+        app.touch(1, 5);
+        app.touch(2, 5);
+        app.touch(3, 5);
+        app.touch(4, 5);
 
+        // Select Menu "A"
+        app.execute("C");
         // Select Menu "C"
- 
+
         // Assertion 
-        assertEquals("Rewards", app.screen());            
+        assertEquals("Rewards", app.screen());
     }
 
-  @Test
+    @Test
     public void testStore()
     {
         // Login with pin
 
         // Select Menu "D"
- 
+        app.touch(1, 5);
+        app.touch(2, 5);
+        app.touch(3, 5);
+        app.touch(4, 5);
+
+        // Select Menu "A"
+        app.execute("D");
         // Assertion 
-        assertEquals("Store", app.screen());            
+        assertEquals("Store", app.screen());
     }
 
-    
+
     /**
      * Tears down the test fixture.
      *
