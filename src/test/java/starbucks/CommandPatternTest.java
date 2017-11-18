@@ -58,7 +58,8 @@ public class CommandPatternTest
                 f.selectA();
                 
         // Assertion
-        assertEquals("MyCards", app.screen());            
+        //assertEquals("MyCards", app.screen()); 
+                assertEquals("MyCards",app.screen());
     }
 
     @Test
