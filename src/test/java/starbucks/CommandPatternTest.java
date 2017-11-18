@@ -18,6 +18,9 @@ import org.junit.Test;
 public class CommandPatternTest
 {
     IApp app ;
+    PinEntryMachine pinEntry ;
+    Screen k;
+    Frame f = new Frame(k);
     
     /**
      * Default constructor for test class CommandPatternTest
@@ -35,6 +38,8 @@ public class CommandPatternTest
     public void setUp()
     {
         app = new AppAuthProxy() ;
+        pinEntry= new PinEntryMachine();
+        k=new Screen();
     }
 
 
@@ -42,9 +47,16 @@ public class CommandPatternTest
     public void testMyCards()
     {
         // Login with pin
-
+        
         // Select Menu "A"
- 
+
+                k.touch(1, 5);
+                k.touch(2, 5);
+                k.touch(3, 5);
+                k.touch(1, 4);
+                
+                f.selectA();
+                
         // Assertion
         assertEquals("MyCards", app.screen());            
     }
