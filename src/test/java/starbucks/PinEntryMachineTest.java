@@ -47,7 +47,7 @@ public class PinEntryMachineTest
         System.out.println( pinEntry.getCurrentState() ) ;
         assertEquals("starbucks.NoPinDigits", pinEntry.getCurrentState());
         pinEntry.backspace();
-        assertEquals("starbucks.NoPinDigits123", pinEntry.getCurrentState());
+        assertEquals("starbucks.NoPinDigits", pinEntry.getCurrentState());
     }
 
     @Test
